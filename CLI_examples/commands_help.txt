@@ -2,6 +2,25 @@
 
 aws cloudformation create-stack --stack-name s3single --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createS3SimpleBucket.json
 
+The name for resource in the template is logical. A a physical name that is based on the combination of the logical name, the stack name, and a unique ID is created by aws while creating stack
+
 2.Delete a stack
 
 aws cloudformation delete-stack --stack-name s3single
+
+3. Create a stack with a single s3 bucket which will be used as website [separate object level permissions is added to index file]
+
+aws cloudformation create-stack --stack-name s3web --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createS3BucketAsWebsite.json
+
+4. create stack with single ec2 with keyname and security group [using Ref function]
+
+pre-requisite: aws ec2 create-key-pair --key-name akilanhome > akilanhome.json
+
+aws cloudformation create-stack --stack-name ec2sample --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createEc2WithSG.json
+
+
+5. create stack with single ec2 with keyname passed as parameter 
+
+aws cloudformation create-stack --stack-name ec2sample2 --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createEc2WithSGPassParam.json --parameters  ParameterKey=KeyName,ParameterValue=akilanhome
+
+*. Also refer Fn::GetAtt, Fn::Join
