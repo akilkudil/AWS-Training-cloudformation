@@ -1,0 +1,7 @@
+1. Create a stack with a single s3 bucket with default values
+
+aws cloudformation create-stack --stack-name s3single --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createS3SimpleBucket.json
+
+2.Delete a stack
+
+aws cloudformation delete-stack --stack-name s3single
