@@ -5,6 +5,7 @@
       "Properties" : {
         "SecurityGroups" : [ { "Ref" : "InstanceSecurityGroup" } ],
         "KeyName" : "akilanhome",
+         "InstanceType" : "t2.micro"
         "ImageId" : "ami-7a11e213"
       }
     },
