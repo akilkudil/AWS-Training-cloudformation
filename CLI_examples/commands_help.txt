@@ -23,4 +23,24 @@ aws cloudformation create-stack --stack-name ec2sample --template-body file://C:
 
 aws cloudformation create-stack --stack-name ec2sample2 --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createEc2WithSGPassParam.json --parameters  ParameterKey=KeyName,ParameterValue=akilanhome
 
-*. Also refer Fn::GetAtt, Fn::Join
+
+
+6. Use fn GetAtt to get domain name of s3 bucket created to use it as property in cloudfront distribution which will be created
+
+aws cloudformation create-stack --stack-name cfdistribution --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/fnGetAttCloudfront.json 
+
+7. Use Fn GetAtt along with Map to get correct AMI to provision
+
+aws cloudformation create-stack --stack-name ec2sample3 --template-body file://C:/SPB_Data/AWS-Training-cloudformation/sampledata/createEc2WithSGWithMap.json --parameters  ParameterKey=KeyName,ParameterValue=akilanhome
+
+*. Also refer Fn::Join, Outputs, DependsOn, DeletionPolicy, Metadata
+
+
+https://puppet.com/blog/continuous-delivery-vs-continuous-deployment-what-s-diff
+
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html
+
+
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html
+
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.html
